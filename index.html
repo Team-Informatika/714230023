@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            overflow: hidden;
+        }
+        .card {
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            display: flex;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-family: Arial, sans-serif;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .left {
+            width: 40%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .left img {
+            width: 150px;
+            border-radius: 50%;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+        .left img:hover {
+            transform: rotate(360deg);
+        }
+        .left h2 {
+            color: red;
+            font-size: 40px;
+            text-align: center;
+        }
+        .right {
+            width: 60%;
+            background: black;
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            border-left: 5px solid red;
+        }
+        .right.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .right h3 {
+            color: white;
+            margin: 0;
+            font-size: 50px;
+            opacity: 0;
+            animation: fadeInOut 3s infinite;
+            text-shadow: 0 0 10px red;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(-20px); }
+            50% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+        .right p {
+            font-size: 28px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 1s ease-in-out;
+        }
+        .right p i {
+            font-size: 32px;
+            color: red;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .decor {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: red;
+            opacity: 0.3;
+            border-radius: 50%;
+            top: 10%;
+            left: 80%;
+            animation: pulse 3s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            document.querySelector(".right").classList.add("show");
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+</head>
+<body>
+    <div class="decor"></div>
+    <div class="card">
+        <div class="left">
+            <img src="Raka .jpg" alt="Profile Picture">
+            <h2><b>Ananda Raka Aditya Wilangga</b></h2>
+            <p style="font-size: 24px;">Programer Pemula</p>
+        </div>
+        <div class="right">
+            <h3>Tentang saya</h3>
+            <p style="color: red; font-size: 30px;">Saya masih belajar coding di Universitas Logistik Bisnis dan sedang berusaha membangun sebuah bisnis web.</p>
+            <p><i class="fas fa-phone-alt"></i> +65 813-1334-7794</p>
+            <p><i class="fas fa-envelope"></i> rakawilangga@gmail.com</p>
+            <p><i class="fas fa-money-bill-wave"></i> Harga dimulai: Rp 150.000</p>
+            <p><i class="fas fa-map-marker-alt"></i> Lembang, Jl. Mutiara Gg. Karnawijaya 5</p>
+        </div>
+    </div>
+</body>
+</html>
